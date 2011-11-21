@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/proto'
+
+
+# :name is optional, otherwise uses the basename of this executable
+program :name, 'Proto'
+program :version, Proto::VERSION
+program :description, 'A Sinatra based framework for rapid prototyping'
+
+
+command :new do |c|
+  # Describe this command
+  c.syntax = 'proto new <path>'
+  c.description = 'Creates a new proto project'
+
+  # accept --path as an option
+  # c.option '--path STRING', String, 'Use this root folder to store this project'
+
+  c.action do |args, options|
+    # Use arguments or default if not found
+    path = args[0] || "."
+    # project = args[1] || ask("Enter project name: ")
+
+    # Create a new project
+    puts options.path
+    Proto::Setup.new(path)
+  end
+
+end
