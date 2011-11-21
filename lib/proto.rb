@@ -26,9 +26,10 @@ module Proto
       templates_path = File.join(File.dirname(__FILE__), '../', 'templates')
       @templates = {
         :app => File.join(templates_path, 'app.rb'),
+        :lib => File.join(templates_path, 'lib'),
         :views => File.join(templates_path, 'views'),
-        :stylesheets => File.join(templates_path, 'stylesheets'),
-        :javascripts => File.join(templates_path, 'javascripts'),
+        :stylesheets => File.join(templates_path, 'sass'),
+        :javascripts => File.join(templates_path, 'coffeescripts'),
         :public => File.join(templates_path, 'public')
       }
 
@@ -38,6 +39,7 @@ module Proto
       end
 
       FileUtils.cp( @templates[:app], File.join(@paths[:main], 'app.rb') )
+      FileUtils.cp_r( @templates[:lib], @paths[:main] )
       FileUtils.cp_r( @templates[:views], @paths[:main] )
       FileUtils.cp_r( @templates[:stylesheets], @paths[:main] )
       FileUtils.cp_r( @templates[:javascripts], @paths[:main] )
