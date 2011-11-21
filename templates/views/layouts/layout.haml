@@ -1,27 +1,11 @@
 !!!5
 %html
   %head
-    %title Proto.rb
+    %title Proto - For Rapid Prototyping
     = stylesheet :styles
-    = javascript :jquery
-    = javascript :html5shim
+    =# javascript :jquery
+    =# javascript :html5shim
     = javascript :application
   %body
-    %header
-      #logo
-        %h1 Example.com
-      %nav#main-nav= haml :main_nav
     = yield
-    %footer
-      %nav= haml :main_nav
-      %section#store-info
-        %h3 Contact Info
-        %ul
-          %li CompanyXYZ
-          %li Located at 1234 56 Street
-          %li Edmonton, AB T1T 1A1
 
-        %ul
-          %li email: hello@example.com
-          %li phone: 780-555-1212
-      = haml :contact_form
