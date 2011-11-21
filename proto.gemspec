@@ -3,15 +3,15 @@ $:.push File.expand_path("../lib", __FILE__)
 require "proto/version"
 
 Gem::Specification.new do |s|
-  s.name        = "proto"
+  s.name        = "Protoform"
   s.version     = Proto::VERSION
   s.authors     = ["Christian Naths"]
   s.email       = ["christiannaths@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "http://christiannaths.com"
   s.summary     = %q{A Sintatra Based Prototyping Framework}
-  s.description = %q{A temporary description}
+  s.description = %q{This is a very simple framework build on top of Sinatra build for rapidly creating static website prototypes. It comes with a flexible SASS grid system and wireframe styles.}
 
-  s.rubyforge_project = "proto"
+  s.rubyforge_project = "Protoform"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

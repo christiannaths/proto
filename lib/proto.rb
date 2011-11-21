@@ -1,8 +1,8 @@
 require 'rubygems'
+require 'proto/version'
 require 'commander/import'
 require 'fileutils'
 require 'yaml'
-require File.join(File.dirname(__FILE__), 'proto', 'version')
 
 module Proto
   class Setup

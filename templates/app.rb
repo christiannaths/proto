@@ -4,7 +4,7 @@ require 'sass'
 require 'coffee-script'
 
 set :sass, :style => :expanded
-set :views, ['views', 'views/layouts', 'views/partials', 'sass', 'scss', 'coffeescripts']
+set :views, ['views', 'views/layouts', 'views/partials', 'sass', 'scss', 'coffeescripts', 'javascripts']
 
 
 helpers do
