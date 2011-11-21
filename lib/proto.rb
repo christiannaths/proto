@@ -10,41 +10,26 @@ module Proto
 
     # Generate a new Proto project
     def initialize(path)
-      @paths = {
-        :main => path,
-        :views => File.join(path, 'views'),
-        :layouts => File.join(path, 'views', 'layouts'),
-        :partials => File.join(path, 'views', 'partials'),
-        :stylesheets => File.join(path, 'stylesheets'),
-        :styles => File.join(path, 'stylesheets', 'proto'),
-        :examples => File.join(path, 'stylesheets', 'proto', 'examples'),
-        :javascripts => File.join(path, 'javascripts'),
-        :public => File.join(path, 'public'),
-        :public_javascripts => File.join(path, 'public', 'javascripts'),
-      }
+      # Create the main project directory
+      FileUtils.mkdir(path)
+
 
       templates_path = File.join(File.dirname(__FILE__), '../', 'templates')
       @templates = {
         :app => File.join(templates_path, 'app.rb'),
-        :lib => File.join(templates_path, 'lib'),
         :views => File.join(templates_path, 'views'),
         :stylesheets => File.join(templates_path, 'sass'),
         :javascripts => File.join(templates_path, 'coffeescripts'),
-        :public => File.join(templates_path, 'public')
+        :public => File.join(templates_path, 'public'),
       }
 
-
-      @paths.each do |key, value|
-        FileUtils.mkdir_p(value)
-      end
-
-      FileUtils.cp( @templates[:app], File.join(@paths[:main], 'app.rb') )
-      FileUtils.cp_r( @templates[:lib], @paths[:main] )
-      FileUtils.cp_r( @templates[:views], @paths[:main] )
-      FileUtils.cp_r( @templates[:stylesheets], @paths[:main] )
-      FileUtils.cp_r( @templates[:javascripts], @paths[:main] )
-      FileUtils.cp_r( @templates[:public], @paths[:main] )
+      FileUtils.cp(@templates[:app], File.join(path, 'app.rb'))
+      FileUtils.cp_r(@templates[:views], path)
+      FileUtils.cp_r(@templates[:stylesheets], path)
+      FileUtils.cp_r(@templates[:javascripts], path)
+      FileUtils.cp_r(@templates[:public], path)
     end
 
   end
+
 end

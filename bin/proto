@@ -27,4 +27,16 @@ command :new do |c|
     Proto::Setup.new(path)
   end
 
+  command :server do |c|
+    # Describe this command
+    c.syntax = 'proto server'
+    c.description = 'Run the Sintara application on the defaul webserver [thin]'
+
+
+    c.action do |args, options|
+      `ruby app.rb`
+    end
+
+
+  end
 end
